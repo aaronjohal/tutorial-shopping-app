@@ -46,7 +46,37 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             return CategoryCell () //blank cell
         }
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = DataService.instance.getCategories()[indexPath.row] //get the category that has been selected at that row
+        
+        //go to next screen when tapped
+        performSegue(withIdentifier: "ProductsVC", sender: category)
+    }
+    
+    
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let productsVC = segue.destination as? ProductsVC {
+            
+            
+            //setting the title of the next nav back button
+                      
+                      let barBtn = UIBarButtonItem()
+                      barBtn.title = ""
+                      navigationItem.backBarButtonItem = barBtn
+                  }
+            
+            
+            
+            
+            assert(sender as? Category != nil)
+            
+            productsVC.initProducts(category: sender as! Category) //* important, we are passing in the sender that we defined as category in the method above (didSelectRowAt) and specifying its a category
+            
+            
+    }
 
 }
 
