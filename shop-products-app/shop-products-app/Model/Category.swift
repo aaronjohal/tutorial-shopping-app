@@ -11,7 +11,7 @@ import Foundation
 
 struct Category {
     
-    private (set) public var title: String //not going to make it unwrapepd optional, we will make sure the data is there when its initialised
+    private (set) public var title: String //not going to make it unwrapped optional, we will make sure the data is there when its initialised
     private (set) public var imageName: String //public for getting but private for setting - it cannot be set outside this class
     
     init(title: String, imageName: String){

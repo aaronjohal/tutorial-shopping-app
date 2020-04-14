@@ -21,6 +21,7 @@ class CategoriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         categoryTable.dataSource = self
         categoryTable.delegate = self
         
+        
 
    
       

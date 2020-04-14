@@ -30,11 +30,77 @@ class DataService {
     
     
     
+    private let hats =
+    [Product(title: "Beanie Hat", price: "£15.00", imageName: "hat01.png"),
+     Product(title: "Black Hat", price: "£18.00", imageName: "hat02.png"),
+     Product(title: "White Hat", price: "£22.00", imageName: "hat03.png"),
+     Product(title: "Snapback Hat", price: "£30.00", imageName: "hat04.png")
+    ]
     
+    private let hoodies = [
+        Product (title: "Logo hoody grey", price: "£32", imageName: "hoodie01.png"),
+        Product (title: "Logo hoody red", price: "£35", imageName: "hoodie02.png"),
+        Product (title: "Logo hoody grey", price: "£40", imageName: "hoodie03.png"),
+        Product (title: "Logo hoody black", price: "£45", imageName: "hoodie04.png"),
+        
+    ]
+    
+    private let shirts = [
+        Product (title: "Logo shirt black", price: "£18", imageName: "shirt01.png"),
+        Product (title: "Logo shirt light grey", price: "£19", imageName: "shirt02.png"),
+        Product (title: "Logo shirt red", price: "£25", imageName: "shirt03.png"),
+        Product (title: "Delegate grey shirt", price: "£30", imageName: "shirt04.png"),
+        Product (title: "black shirt", price: "£35", imageName: "shirt05.png"),
+    ]
+    
+    
+    private let digitalGoods = [Product]() //empty array of type product
     
     func getCategories()-> [Category]{
-        return categories
+           return categories
+           
+       }
+
+    
+    
+    func getProducts(forCategoryTitle title:String) -> [Product]{
+        switch title {
+        case "SHIRTS":
+            return getShirts()
+        case "HATS":
+            return getHats()
+        case "HOODIES":
+            return  getHoodies()
+        case "DIGITAL":
+            return getDigital()
+        default:
+            return getShirts()
+        }
+        
+      
+        
         
     }
-
+    
+    func getHats() -> [Product]{
+        return hats
+    }
+    
+    func getHoodies() -> [Product]{
+        return hoodies
+        
+    }
+    
+    func getShirts() -> [Product]{
+        return shirts
+        
+    }
+    
+    func getDigital() -> [Product]{
+        return digitalGoods
+        
+        
+    }
+    
+   
 }
